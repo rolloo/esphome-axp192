@@ -16,6 +16,10 @@ void AXP192Component::setup()
     case AXP192_M5CORE2:
     {
         // disable LDO3 Vibration
+        begin(false, true, false, false, true);
+    }
+    case AXP192_M5TOUGH:
+    {
         begin(false, false, false, false, true);
     }
   }
@@ -57,6 +61,13 @@ void AXP192Component::begin(bool disableLDO2, bool disableLDO3, bool disableRTC,
         Write1Byte(0x28, 0xcc);	
     }
     case AXP192_M5CORE2:
+    {
+        // Set DCDC3 (TFT_LED & TFT) 3.0V
+        Write1Byte(0x27, 0xcc);	
+        // Set LDO2 & LDO3(TFT_LED & TFT) 3.0V
+        Write1Byte(0x28, 0xcc);	
+    }
+    case AXP192_M5TOUGH:
     {
         // Set DCDC3 (TFT_LED & TFT) 3.0V
         Write1Byte(0x27, 0xcc);	
