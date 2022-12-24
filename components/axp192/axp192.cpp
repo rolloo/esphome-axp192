@@ -16,7 +16,7 @@ void AXP192Component::setup()
     case AXP192_M5CORE2:
     {
         // disable LDO3 Vibration
-        begin(false, false, false, false, true);
+        begin(false, true, false, false, false);
     }
     case AXP192_M5TOUGH:
     {
