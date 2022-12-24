@@ -220,6 +220,11 @@ void AXP192Component::UpdateBrightness()
         uint8_t buf = Read8bit( 0x27 );
 		Write1Byte( 0x27 , ((buf & 0x80) | (ubri << 3)) );
       }
+      case AXP192_M5TOUGH:
+      {
+        uint8_t buf = Read8bit( 0x27 );
+		Write1Byte( 0x27 , ((buf & 0x80) | (ubri << 3)) );
+      }
     }
 }
 
